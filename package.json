@@ -7,7 +7,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "echo \"No tests yet\""
   },
   "devDependencies": {
     "eslint": "^9.39.1",
@@ -32,8 +33,8 @@
   ],
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
-      "eslint --fix",
-      "prettier --write"
+      "prettier --write",
+      "eslint --fix"
     ]
   }
 }
