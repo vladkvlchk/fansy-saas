@@ -12,6 +12,8 @@
     "test": "echo \"No tests yet\""
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^8.48.0",
     "@typescript-eslint/parser": "^8.48.0",
     "eslint": "^8.57.1",
@@ -20,7 +22,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-unused-imports": "^4.3.0",
-    "husky": "^8.0.0",
+    "husky": "^8.0.3",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.3",
     "turbo": "^2.6.1",
@@ -37,7 +39,12 @@
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --cache --fix",
+      "git add"
     ]
   }
 }
