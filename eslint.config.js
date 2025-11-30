@@ -50,7 +50,7 @@ export default [
     },
     rules: {
       // TypeScript
-      ...ts.configs.recommended.rules,
+      ...ts.configs.recommended?.rules,
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/consistent-type-imports': ['error'],
 
