@@ -2,6 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 echo "✨ Running pre-commit hooks..."
-npx prettier --write .
-npm run lint -- --fixnpx lint-staged || { echo "❌ Lint failed! Fix it before commit." ; exit 1; }
-echo "✅ All good, committing..."npx lint-staged
+npx lint-staged || { echo "❌ Lint or Prettier failed! Fix it before commit." ; exit 1; }
+echo "✅ All good, committing..."
