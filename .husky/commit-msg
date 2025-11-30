@@ -1,5 +1,21 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔍 Checking commit message with commitlint..."
 
 npx --no -- commitlint --edit "$1"
-npx --no -- commitlint --edit "$1"
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo "❌ Commit message validation failed!"
+  echo "   Please use the correct format:"
+  echo "   <type>(<scope>): <subject>"
+  echo ""
+  echo "Examples:"
+  echo "   feat(api): add endpoints for live quotes"
+  echo "   fix(ui): correct modal z-index"
+  echo "   refactor(utils): simplify query builder"
+  exit 1
+fi
+
+echo "✅ Commit message is valid!"
